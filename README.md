@@ -12,7 +12,7 @@ An immersive slideshow for the photos in [this Google Drive folder](https://driv
 - 🎞 Film-grain overlay and corner vignette for warmth
 - 📱 Mobile-first: swipe to change, double-tap to go fullscreen, long-press to pause, safe-area aware
 - ⌨️ Desktop shortcuts: <kbd>Space</kbd> pause • <kbd>←</kbd>/<kbd>→</kbd> nav • <kbd>F</kbd> fullscreen • <kbd>D</kbd> download • <kbd>S</kbd> shuffle • <kbd>?</kbd> help
-- ⬇️ Download the current photo, or zip all of them client-side (no server)
+- ⬇️ Download the currently visible photo with one tap (or press <kbd>D</kbd>)
 - ♻️ Respects `prefers-reduced-motion`
 
 ## Adding new photos
@@ -36,4 +36,4 @@ python3 -m http.server 8000
 
 ## Stack
 
-Plain HTML + CSS + JavaScript. No build step, no framework, no tracking. JSZip is loaded from a CDN with Subresource Integrity.
+Plain HTML + CSS + JavaScript. No build step, no framework, no tracking, no dependencies.

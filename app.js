@@ -33,7 +33,6 @@
   const btnShuffle     = $("btn-shuffle");
   const btnFullscreen  = $("btn-fullscreen");
   const btnDownload    = $("btn-download");
-  const btnDownloadAll = $("btn-download-all");
   const btnHelp        = $("btn-help");
   const btnCloseHelp   = $("btn-close-help");
   const navPrev        = $("nav-prev");
@@ -250,27 +249,6 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
-  async function downloadAll() {
-    if (typeof JSZip === "undefined") {
-      showToast("ZIP library still loading…");
-      return;
-    }
-    showToast(`Zipping ${images.length} photos…`, 60_000);
-    const zip = new JSZip();
-    let done = 0;
-    await Promise.all(images.map(async (img, i) => {
-      try {
-        const blob = await (await fetch(img.url, { mode: "cors" })).blob();
-        zip.file(`our-kids-${String(i + 1).padStart(2, "0")}.jpg`, blob);
-      } catch (e) { /* skip on error, keep going */ }
-      done++;
-      toastEl.textContent = `Zipping ${done} / ${images.length}…`;
-    }));
-    const blob = await zip.generateAsync({ type: "blob" });
-    saveBlob(blob, "our-kids-photos.zip");
-    showToast("Saved 💾");
-  }
-
   // ----- Shuffle -----------------------------------------------------
   function shuffle() {
     const current = images[index];
@@ -386,7 +364,6 @@
     btnShuffle.addEventListener("click", shuffle);
     btnFullscreen.addEventListener("click", toggleFullscreen);
     btnDownload.addEventListener("click", downloadCurrent);
-    btnDownloadAll.addEventListener("click", downloadAll);
     btnHelp.addEventListener("click", openHelp);
     btnCloseHelp.addEventListener("click", closeHelp);
     helpModal.addEventListener("click", (e) => {
