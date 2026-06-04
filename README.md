@@ -2,7 +2,7 @@
 
 An immersive slideshow for the photos in [this Google Drive folder](https://drive.google.com/drive/folders/1PcD3VnHoJz795g_r6Ay4jUrt-qwUj5il).
 
-→ **Live site:** https://gran33.github.io/kids-gallery/
+→ **Live site:** https://gran33.github.io/rls/
 
 ## Features
 
