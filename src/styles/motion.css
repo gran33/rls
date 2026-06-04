@@ -1,0 +1,14 @@
+/* ========================================================================
+   MOTION OVERRIDES — honor user preferences (reduced motion).
+   ======================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .layer.kb1,
+  .layer.kb2,
+  .layer.kb3,
+  .layer.kb4 { animation: none !important; }
+
+  .title .heart { animation: none; }
+
+  :root { --duration-fade: 400ms; }
+}

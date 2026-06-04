@@ -34,6 +34,36 @@ python3 -m http.server 8000
 # → http://localhost:8000
 ```
 
-## Stack
+## Architecture
 
-Plain HTML + CSS + JavaScript. No build step, no framework, no tracking, no dependencies.
+Plain HTML + CSS + native ES modules. No build step, no framework, no tracking, no runtime dependencies.
+
+```
+src/
+├── main.js                  composition root — wires everything together
+├── lib/
+│   ├── config.js            tunable runtime constants
+│   ├── drive-client.js      Google Drive image client (URL builder + preload cache)
+│   ├── slideshow.js         state machine (index, paused, images) + pub/sub
+│   ├── scheduler.js         pausable tick that resumes from where it paused
+│   └── dom.js               typed DOM-ref bag, fails fast on missing elements
+├── ui/
+│   ├── stage.js             two-layer crossfade + ambient halo
+│   ├── filmstrip.js         scroll-snapping thumbnail row
+│   ├── progress-ring.js     SVG ring driven by the scheduler
+│   ├── toast.js             transient notification
+│   ├── help-modal.js        modal open/close
+│   ├── gestures.js          touch → swipe / double-tap / long-press
+│   ├── keyboard.js          key → callback registry
+│   ├── fullscreen.js        vendor-prefixed fullscreen toggle
+│   └── download.js          Blob → saved file
+└── styles/
+    ├── tokens.css           design tokens (color, type, motion, spacing)
+    ├── base.css             element-level defaults
+    ├── stage.css            slideshow layers, halo, grain, vignette
+    ├── chrome.css           top bar, nav arrows, caption, progress ring
+    ├── components.css       button, thumb, toast, modal
+    └── motion.css           prefers-reduced-motion overrides
+```
+
+Every JS module documents its inputs / outputs with JSDoc — editors get type hints without a TypeScript toolchain.

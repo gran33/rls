@@ -1,0 +1,68 @@
+/* ========================================================================
+   DESIGN TOKENS — colors, typography, spacing, motion. Everything else
+   should reference these custom properties, never raw values.
+   ======================================================================== */
+
+:root {
+  /* ---- Color ---- */
+  --color-bg:        #07070b;
+  --color-bg-deep:   #14141c;
+  --color-fg:        #f5f1ea;
+  --color-fg-dim:    rgb(245 241 234 / 0.72);
+  --color-fg-faint:  rgb(245 241 234 / 0.45);
+  --color-accent:    #ff6b8b;
+  --color-accent-soft: rgb(255 107 139 / 0.18);
+
+  --surface-card:    rgb(18 18 26 / 0.55);
+  --surface-strong:  rgb(12 12 18 / 0.78);
+  --surface-grain:   rgb(255 255 255 / 0.07);
+
+  --stroke-faint:    rgb(255 255 255 / 0.08);
+  --stroke-soft:     rgb(255 255 255 / 0.10);
+  --stroke-strong:   rgb(255 255 255 / 0.20);
+
+  /* ---- Typography ---- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter",
+               "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --font-size-xs:  12px;
+  --font-size-sm:  13px;
+  --font-size-md:  14px;
+  --font-size-lg:  18px;
+  --font-size-xl:  20px;
+
+  /* ---- Spacing / radius ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 14px;
+  --space-5: 18px;
+  --space-6: 22px;
+  --radius-sm:  10px;
+  --radius-md:  14px;
+  --radius-lg:  18px;
+  --radius-pill: 999px;
+
+  /* ---- Effects ---- */
+  --shadow-elev: 0 24px 60px -10px rgb(0 0 0 / 0.7);
+  --shadow-glow: 0 0 12px var(--color-accent-soft);
+
+  /* ---- Motion (must mirror CONFIG.fadeDurationMs in JS) ---- */
+  --duration-fade:  1600ms;
+  --duration-quick: 180ms;
+  --duration-fast:  120ms;
+  --ease-out:       cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* ---- Safe-area passthrough ---- */
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+
+  /* ---- Layout ---- */
+  --strip-height: 92px;
+}
+
+@media (max-width: 640px) {
+  :root { --strip-height: 72px; }
+}

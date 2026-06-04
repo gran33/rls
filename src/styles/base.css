@@ -1,0 +1,45 @@
+/* ========================================================================
+   BASE — element-level defaults: reset, root, body.
+   ======================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+kbd {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  background: rgb(255 255 255 / 0.10);
+  border-radius: 6px;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg);
+  margin-right: 6px;
+  min-width: 22px;
+  text-align: center;
+}
